@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+</head>
+<body>
+    <button id="ajaxBtn">getDate</button>
+
+    <br><hr><br>
+
+    <table  style="border: 1px solid black" width="400px">
+        <tbody id="tbody"></tbody>
+    </table>
+
+
+    <script>
+        $(document).ready(function() {
+            $("#ajaxBtn").click(function() { 
+                console.log("debug >>>>>> button click");
+                /*
+                비동기 통신으로 ajax() 함수를 이용해서 
+                백엔드 서버와 통신하고 json 형식의 데이터를 받을 수 있다.
+                즉, ajax를 통해 웹리로딩없이 데이터를 주고받을수있다.
+                */
+                $.ajax({
+                   url : "../content/test.json",
+                   dataType : "json",    // 안적어도 기본적으로 json으로 내려받음 보여주기용
+                   success : function(data) {
+                        console.log("data Type : ", typeof data);
+                        html = "" ;
+                        for(let idx in data) {
+                            html += `<tr>` ;
+                            html += `<td>${data[idx].name}</td>` ;
+                            html += `<td>${data[idx].age}</td>` ;
+                            html += `<td>${data[idx].address}</td>` ;
+                            html += `</tr>` ;
+                        }
+                        // for(let idx of data) {
+                        //     html += `<tr>` ;
+                        //     html += `<td>${idx.name}</td>` ;
+                        //     html += `<td>${idx.age}</td>` ;
+                        //     html += `<td>${idx.address}</td>` ;
+                        //     html += `</tr>` ;
+                        // }
+                        $("tbody").html(html) ;
+                        
+                   } 
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

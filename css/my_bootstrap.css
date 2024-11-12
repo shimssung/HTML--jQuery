@@ -1,0 +1,31 @@
+/* 선택자: 태그, 아이디, 클래스 */
+
+/* *는 전체 선택자 */
+* {
+  text-align: center;  
+}
+
+.header {
+    border : 2px solid red ;
+    height: 55px ;
+}
+
+#nav {
+    border: 2px solid blue ;
+    height: 110px;
+}
+
+.main {
+    border: 2px solid greenyellow;
+    height: 300px;
+}
+
+.footer {
+    border: 2px solid goldenrod;
+    height: 300px;
+}
+
+div > ul {
+    list-style: none;
+    padding-left: 0px;
+}

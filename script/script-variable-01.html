@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+    <script>
+        /*
+        - 스크립트는 Document Controll 하는 역할 담당
+        - 필요에 따라서는 서버와 통신(비동기 통신)을 담당
+        - 프로그래밍 언어이기 때문에 조건, 반복, 변수, 함수 개념을 가지고있음.
+        - 스크립트 변수(타입이 없음): var, let, const 
+            - var 를 사용
+            - 타입이 따로 없기때문에 넣는거에 따라 타입이 알아서 변함.
+            - 선언된 변수가 있고 같은 이름의 변수를 선언하더라도 에러가 발생하지 않는다.
+            - var는 중복을 허용하지만 let은 변수의 중복을 체크해준다.
+            - const는 final임
+
+            - var는 식별자를 중복으로 선언하면 문제가 발생하는게 이걸 허용함
+            - 이걸 막기 위해 let을 사용하고 같은 이름의 식별자를 생성하지 못하게하고 하나로만 바꿔서 사용
+        */
+
+        var msg = "섭섭이와 함께하는 즐거운 스크립트";
+        console.log(">>>> debug - ", msg);
+        console.log(">>>> debug type check - ", typeof msg)
+        var msg = true;
+        console.log(">>>> debug - ", msg);
+        console.log(">>>> debug type check - ", typeof msg)
+        var msg = "선언된 변수가 있고 같은 이름의 변수를 선언하더라도 에러가 발생하지 않는다."
+        console.log(">>>> debug - ", msg);
+
+        let msg1 = "섭섭이와 함께하는 즐거운 스크립트";
+        console.log(">>>> debug - ", msg1);
+        console.log(">>>> debug type check - ", typeof msg1)
+        msg1 = true;
+        console.log(">>>> debug - ", msg1);
+        console.log(">>>> debug type check - ", typeof msg1)
+        msg1 = "선언된 변수가 있고 같은 이름의 변수를 선언하더라도 에러가 발생하지 않는다."
+        console.log(">>>> debug - ", msg1);
+        console.log(">>>> debug type check - ", typeof msg1)
+
+        // const는 한번 선언하면 바꿀 수 없음.
+        const data = "jslim";
+        // data = "reassign";
+        console.log(">>>> debug - ", data);
+
+        console.log("");
+        console.log(">>>> 스크립트 변수 타입 <<<<");
+        console.log(">>>> 문자, 숫자, 논리, 배열, 객체, 함수 <<<<");
+        let userAge = 10;
+        console.log(">>>> debug type check - ", typeof userAge);
+        let isMarried = false ;
+        console.log(">>>> debug type check - ", typeof isMarried);
+        let userObj = {
+            name : "jslim", age : 100, isMarried : true
+        
+        }
+        console.log(">>>> debug type check - ", typeof userObj);
+        console.log(">>>> debug type check - ", userObj);
+        console.log(">>>> debug type check - ", userObj.name);
+        console.log(">>>> debug type check - ", userObj.age);
+        console.log(">>>> debug type check - ", userObj.isMarried);
+        console.log(">>>> debug type check - ", userObj['isMarried']); // 스크립트는 ''와 ""를 구분하지않는다.
+
+        // 스크립트 배열
+        let userAry = [userObj, userObj, userObj, userObj];
+        console.log(">>>> debug type check - ", typeof userAry);
+
+        // 스크립트 반복문
+        for(let idx=0; idx < userAry.length; idx++) {
+            let user = userAry[idx];
+            console.log("user - ", user);
+        }
+
+        // for ~ in 은 꺼내오는게 인덱스 번지를 가르킴
+        console.log(">>>> debug script for ~ in ");
+        for(let key in userAry) {
+            console.log("user - key ", key, "data = ", userAry[key]);
+        }
+
+        // for ~ of 는 꺼내오는게 객체를 가르킴
+        console.log(">>>> debug script for ~ of ");
+        for(let obj of userAry) {
+            console.log("user - data ", obj.name);
+        }
+
+    </script>
+</body>
+</html>

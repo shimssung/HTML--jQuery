@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            text-decoration: none;
+        }
+
+        /* 같은 줄에 다른 요소들과 나란히 배치 즉, 블록들을 인라인처럼 정렬 */
+        nav > ul > li {
+            display: inline-block; 
+            line-height: 50px;
+            margin-right: 20px;
+        }
+
+        nav {
+            background-color: black;
+        }
+
+        nav > ul > li > a {
+            color: white;
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: bold;
+
+        }
+
+        a:hover {
+            border: 1px solid wheat;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="" class="active">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Service</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Feedback</a></li>
+            <li><a href="">Customer Center</a></li>
+            <li><a href="">Help</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+            
+        <!-- bootstrap cdn -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+        <!-- jquery cdn -->
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        
+</head>
+<body>
+
+    <input type="text" id="id">
+    <input type="text" id="pwd">
+
+    <!-- 버튼을 눌렀는지를 버튼에서 감지하여 함수호출 -->
+    <button class="btn btn-primary" onclick="btnClick()">ADD</button>
+
+    <!-- a태그에서는 href에 javascript: 를 넣어줘야함. -->
+    <!-- 함수에 인자를 넘겨줄수있고, 넘겨받은 인자를 호출할수있다 -->
+    <a href="javascript:aClick(100, 100)" class="btn btn-primary" >스크립트 함수 호출</a>
+
+    <script>
+        // 스크립트 함수는 리턴타입이 없어도 리턴을 가질 수 있다.!!
+        // 선택자를 이용해 도큐먼트에 접근하고 값을 할당
+        function btnClick() {
+            console.log(">>>> add button click ");
+            document.querySelector("#id").value = "jslim";
+            document.querySelector("#pwd").value = "jslim";
+        }
+        function aClick(first, second) {
+            console.log(">>>> add button click ");
+            console.log(first);
+            console.log(typeof second);
+        }
+
+
+        // 시작하자마자 실행. 아무것도 안해도
+        function getTriangle(base, height) {
+            return base * height /2;
+        }
+        let result = getTriangle(5,2);
+        console.log("삼각형의 면적 - ", result);
+
+
+        // 익명의 함수
+        console.log(">>>> 익명의 함수");
+        let func01 = function(base, height) {
+            return base * height / 2;
+        }
+        console.log("type - ", typeof func01);
+        console.log(func01(10, 3));
+
+
+        // 익명의 함수를 람다식으로 표현
+        // () => {함수본체}
+        result = (base, height) => {
+            return base * height / 2;
+        }
+        console.log(result(5, 2));
+
+        // 더 간결한 식
+        result = radius => radius * radius - Math.PI;
+        console.log(result(10));
+
+
+        /*
+        범위 관련 문제가 발생하므로 주의를 요함!!!!
+        스크립트에선 두가지 용어가 나옴
+         - 전역(함수 밖에서 선언된 변수)
+         - 지역(함수 안에서 선언된 변수)
+        */
+
+       let globalVar = "global scope";  // 변수의 선언 위치가 다르기 때문에 중복이 아님
+       function getValue() {
+        let globalVar = "local scope";  // 여기서는 블록 안에서만 사용!! 하지만 let을 지우면 연동됨!!!! 즉, 전역변수를 그대로 가져와 함수안에서 재할당.
+        return globalVar;
+       }
+       console.log(">>>> function call - ", getValue());
+       console.log(">>>> globalVar - ", globalVar);
+    </script>
+
+</body>
+</html>

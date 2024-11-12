@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* internal style */
+
+    </style>
+    
+        <!-- external style --> 
+        <link rel = "stylesheet" href = "../css/text.css"/>
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <!-- 
+    - HTML(Hyer Text Markup Language) : 웹 페이지의 구조(tag 형식으로 이루어져있다.)
+       1. tag의 구성 : 태그(속성을 가짐)와 텍스트
+       2. 개행, 공백을 표현할 수 없다. 그러므로 태그를 이용해서 구현해야한다.
+    - css : 웹 페이지의 표현을 담당(데코레이션) 
+        1. inline style : 태그에 직접 스타일 적용
+        2. internal style : 페이지 내부에 <style> 태그를 이용하여 적용
+        3. external style : .css 파일을 만들고 <link> 태그를 이용하여 적용
+    - javascript(함수기반) : 웹 페이지에서 클라이언트의 이벤트 동작을 처리하는 역할 (동작)
+       1. DOM(Document Object Model), BOM(Browser Object Model)
+       2. SPA(Single page Application) - request
+       3. Full Browsing(request, response)
+       4. JQuery(CND, local setting)
+
+    - Front-End Framework
+      : Vue.js, React.js - (html, script, css)
+
+    - bootstrap
+      : 반응형 웹으로 구조와표현을 구현하고 있는 컴포넌트
+
+    - id는 보통 스크립트 식별자용 (#사용)
+    - class는 보통 css 식별자용 (.사용)
+        
+     -->
+     HTML(Hyer Text Markup Language)
+     <div id = "parent">
+        <div class = "child"> box1 </div>
+     </div>
+     <br/><br/>
+     <div>
+        <label for = "agree"> 동의하시겠습니까?
+            <input type = "checkbox" name="agree" id="agree" value="동의">
+        </label>
+        <button id = "agreeBtn">Send</button>
+        <span id="Result"></span>
+     </div>
+
+     <script>
+        window.onload = function() {
+            window.alert("사이트에 오신것을 환영합니다.") ;
+        }
+        $(document).ready(function() {
+            $("#agreeBtn").click(function() {
+                var onOff = $("#agree");
+                console.log("onOff >>>>>>>> ", onOff);
+                console.log("onOff >>>>>>>> ", onOff.is(":checked"));
+                if( onOff.is(":checked")) {
+                    // window.alert("동의하셨습니다.")
+                    $("#Result").html("동의하셨습니다.")
+                } else{
+                    // window.alert("미동의하셨습니다.")
+                    $("#Result").html("미동의하셨습니다.")
+                }
+            });
+        }) ;
+     </script>
+</body>
+</html>

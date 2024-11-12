@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- 
+    jQuery : 
+     - DOM을 컨트롤 할 수 있는 쉬운 방법을 제공
+     - $기호로 jQuery사용을 알린다.
+     - $('css selector').함수() ;
+     - $(document).reayd(funtion() { }) === window.onload = funtion() { } 
+    -->
+
+    <!-- 인터프리트 방식이라 HTML은 위에서부터 아래로 실행됨 h1을 red로 바꾸라는 스크립트를 시작하자마자
+    만났지만 아직 h1을 찾지 못했기때문에 정상 작동하지 못함
+    그래서 보통 스크립트는 body가 끝나기 직전에 적어주는거임. -->
+    <script>
+        $('h1').css('color', 'red');
+    </script>
+
+</head>
+<body>
+    
+    <h1>jQuery를 테스트합니다.</h1>
+    <h1 id="target">jQuery를 테스트합니다.</h1>
+    <button id="addbtn">ADDBUTTON</button><button id="delbtn">DELBUTTON</button>
+    <div id="result">
+        <input type="text">
+    </div>
+
+
+
+    <script>
+        $(document).ready(function() {
+            $('h1').css('color', 'red');
+            $('#target').css('color', 'orange');
+            $('#addbtn').click(function(event) {
+                $('#result').append("<input type='text'>"); // "" 이거로 묶어줘야 오류가 발생안하네?
+            });
+            $('#delbtn').click(function(event) {
+                $('#result').empty(); // "" 이거로 묶어줘야 오류가 발생안하네?
+                // $('#result').remove(); // remove를 사용하면 다시 생성이 안됨. result라는 태그 자체가 사라짐
+            });
+        });
+    </script>
+
+
+</body>
+</html>

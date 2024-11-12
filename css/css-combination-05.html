@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 후손 선택자 */
+        div > ul {
+            color: red;
+        }
+        div h2 {
+            color: white;
+            background-color: plum;
+        }
+
+        
+        /* phone 태그의 컬러를 블루로 적용하고 싶다면?
+        /* 자손 선택자 h3 > tel > phone 대신 tel > phone 해도됨*/
+        h3 > tel > phone {
+            color: blue;
+        }
+        body > p {
+            color: green;
+        }
+
+        /* 인접 형제 선택자 */
+        h1 + h2 + ul {
+            color: blue;
+        }
+        div + h3 {
+            color: red;
+        }
+
+        /* 일반 형제 선택자 */
+        h3 ~ p {
+            color: purple;
+            background-color: yellow;
+        }
+
+        /* 그룹 선택자 */
+        h3, p, h2 {
+            color: red;
+        } 
+        
+    </style>
+
+</head>
+<body>
+    <!-- 
+    조합 선택자 : 기존의 여러 선택자를 복합적으로 조합하는 방법을 제공
+     - 후손 선택자      : 선택자A 선택자B (공백사용) - 선택자B가 선택자A에 포함되어있다면.
+                       : 후손이라는 큰 범위가 직계를 포함하고있다.
+     - 자손 선택자      : 선택자A > 선택자B
+     - 인접 형제 선택자 : 선택자A + 선택자B - 선택자A 바로 다음에 위치한 선택자B
+     - 일반 형제 선택자 : 선택자A ~ 선택자B - 선택자A 뒤에 인접하여 나타나는 모든 선택자B
+     - 그룹 선택자      : 선택자A , 선택자B - 선택자A와 선택자B
+    -->
+
+    <!-- div기준 h2와 ul은 자손, li는 후손, ul은 body를 기준으로 후손 -->
+    <div>
+        <h2>Descendant Selector</h2>
+        <ul> 후손선택자
+            <li>div를 기준으로 자식의 자식(후손)</li>
+            <li>div를 기준으로 자식의 자식(후손)</li>
+        </ul>
+    </div>
+    <h2>Descendant Selector</h2>
+
+    <br><hr><br>
+
+    <p>자식 선택자</p>
+    <h3>
+        <son>1234567</son>
+        <std>섭섭해</std>
+        <tel>
+            <office>02-1234-1234</office>
+            <phone>010-1234-1234</phone>
+        </tel>
+    </h3>
+
+    <br><hr><br>
+
+    <div>
+        <h1>인접 형제1</h1>
+        <h2>인접 형제2</h2>
+        <ul>목록
+            <li>주제1</li>
+            <li>주제2</li>
+        </ul>
+    </div>
+    <h3>Adjacent Selector_1</h3>
+    <p>인접 형제 선택자에 의한 스타일 적용</p>
+    <h3>Adjacent Selector_2</h3>
+
+    <br><hr><br>
+
+    <div>
+        <h1>일반 형제1</h1>
+        <h2>일반 형제2</h2>
+        <ul>목록
+            <li>일반형제 주제1</li>
+            <li>일반형제 주제2</li>
+        </ul>
+    </div>
+    <h3>Sibling Selector_1</h3>
+    <h4>같은 레벨의 형제</h4>
+    <p>일반 형제 선택자에 의한 스타일 적용</p>
+    <h3>Sibling Selector_2</h3>
+    <h3>Sibling Selector_3</h3>
+</body>
+</html>

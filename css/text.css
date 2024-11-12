@@ -1,0 +1,10 @@
+        #parent{
+            display: flex;
+            flex-direction: row;
+            border: 3px solid red;
+            flex-wrap: wrap;
+        }
+        .child{
+            flex: 1 0 auto;
+            border: 3px solid green;
+        }

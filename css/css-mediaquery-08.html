@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    /* 화면 너비가 800px 이하일 때 파란색 배경 */
+    @media (max-width: 800px) {
+        body {
+            background-color: blue;
+        }
+    }
+    /* 화면 너비가 801px 이상 900px 이하일 때 빨간색 배경 */
+    @media (min-width: 801px) and (max-width: 900px) {
+        body {
+            background-color: red;
+        }
+    }
+    /* 화면 너비가 901px 이상일 때 노란색 배경 */
+    @media (min-width: 901px) {
+        body {
+            background-color: yellow;
+        }
+    }
+    </style>
+
+</head>
+<body>
+    <!-- 
+    반응형 웹이란 : 해상도에 따라서 반응하는 웹
+     - media query 필요
+    -->
+
+    <h1>반응형 웹을 만나는 시간</h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Cum maxime optio expedita dolor itaque doloribus ipsam corrupti, 
+        magni accusantium, dignissimos officia harum vitae repudiandae necessitatibus 
+        voluptatibus dolorem qui enim iste.
+    </p>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+
+    #box {
+        font-size: 30px;
+        color: white;
+        font-weight: bold;
+        display: flex; /* Flex 사용 */
+        justify-content: center; /* 수평 중앙 정렬 */
+        align-items: center; /* 수직 중앙 정렬 */
+        width: 500px;
+        height: 150px;
+        background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+        border-radius: 30px;
+        margin: 20px auto; /* 화면 가운데 배치 */
+    }
+
+    div {
+        text-align: center;
+    }
+
+    .weather-icons img {
+        width : 200px;
+        height: 200px;
+        margin: 5px;
+        border-radius: 20px;
+        border: 1px solid pink;
+        box-shadow: 5px 5px 10px pink;
+    }
+
+    img:hover {
+        opacity: 0.3; /* 50% 투명도 */
+    }
+
+
+    </style>
+</head>
+<body>
+    <p id="box"><span style="color: blue;">날씨</span>의 종류</p>
+
+    <hr>
+
+    <div class="weather-icons">
+            <img src="../assert/img/1.png" alt="맑음">
+            <img src="../assert/img/2.png" alt="비">
+            <img src="../assert/img/3.png" alt="비">
+    </div>
+    <div class="weather-icons">
+        <img src="../assert/img/4.png" alt="맑음">
+        <img src="../assert/img/5.png" alt="비">
+        <img src="../assert/img/6.png" alt="비">
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assert/css/externalcss.css">
+</head>
+<body>
+    <!-- 
+    가상 선택자 : 웹 문서에 보이지는 않지만 동작에 영향을 주는 속성을 가상 선택자로 이용
+     - 사용자가 마우스 이벤트 행위를 어떻게 하는지에 따라서 스타일 시트가 다르게 적용
+
+     a : link { attribute : value };         - 사용자가 방문하지 않은 곳
+     a : visited link { attribute : value }; - 사용자가 방문한 곳
+     a : active link { attribute : value };  - 사용자가 링크를 클릭하는 순간
+     a : hover link { attribute : value };   - 사용자가 링크에 마우스를 올려놓고 있을 때
+     a : focus link { attribute : value };   - 사용자가 링크에 초점을 맞췄을 때?(input text박스에 적으려고 박스 눌럿을 때)
+
+    -->
+
+    <h2>가상(Pseudo) 선택자</h2>
+
+    <p><a href="http://www.w.org" target="_blank">W3C 방문</a>: 마우스 이벤트에 따른 링크의 변화를 확인 하세요!!</p>
+
+    <div class="div01">
+        <h3>가상의 클래스 영역 01.</h3>
+        마우스 위치에 따른 박스의 스타일의 변화를 확인하세요!!
+    </div>
+
+    <div class="div02">
+        <h3>가상의 클래스 영역 02.</h3>
+        마우스 위치에 따른 박스의 스타일의 변화를 확인하세요!!
+    </div>
+
+    <br>
+
+    <input type="text">
+
+    <br>
+
+    힌트보기<input type="checkbox">
+    <div class="hint">남대문이 있는 곳이 어디죠? </div>
+
+
+</body>
+</html>

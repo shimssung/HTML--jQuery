@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    background-color: gray;
+    text-align      : center;
+    font-size       : 35px;
+    color           : white ;
+    padding         : 30px ;
+}
+
+footer {
+    background-color: gray;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+article {
+    float: left;
+    width: 70%;
+    padding: 20px;
+    background-color: goldenrod;
+    height: 300px;
+}
+
+nav {
+    float: left;
+    width: 30%;
+    padding: 20px;
+    background-color: cyan;
+    height: 300px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media (max-width : 600px) {
+    nav, article {
+        width: 100%;
+        height: auto;
+    }
+}

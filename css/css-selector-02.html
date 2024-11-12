@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 전체 선택자 */
+        * {
+            background-color: yellowgreen;
+        }
+
+        /* 타입 선택자 */
+        h1 {
+            background-color: black;
+            color: white;
+        }
+        h2 {
+            background-color: aquamarine;
+            color: brown;
+        }
+        h3 {
+            background-color: beige;
+            color: blueviolet;
+        }
+        p {
+            background-color: chocolate;
+            color: black;
+        }
+
+        /* 클래스 선택자 */
+        h3 p.class1 {       /* p.class1 or .class1 만적어도 되긴함 */
+            background-color: cornflowerblue;
+        }
+
+        /* 아이디 선택자 */
+        #id1 {
+            color: blueviolet;
+        }
+
+        /* 속성 선택자 */
+        input[name = 'id'] {    /* input 없어도됨 */
+            color: blue;
+            background-color: yellow;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    선택자란 : 문서에 정의된 요소를 접근하기 위해서 사용하는 방법
+    종류
+     - 전체 선택자 : * {속성선언}
+     - 타입 선택자 : tag {속성선언}
+     - 클래스 선택자 : .클래스이름 {속성선언}
+     - 아이디 선택자 : #아이디이름 {속성선언}
+     - 속성 선택자 : [속성=값] {속성선언}
+    -->
+
+    <h1>Type Selector</h1>
+    <h2>Type Selector</h2>
+    <h3>Type Selector</h3>
+    <p>각 요소에 다르게 적용되는 걸 확인해 보자</p>
+    
+    <h3>
+        <p class="class1">Class 선택자를 이용한 디자인 구성</p>
+    </h3>
+
+    <h1 id="id1">id선택자를 이용한 디자인 구성</h1>
+
+    <input type="text" name="id"><br>
+    <input type="password" name="password">
+
+
+</body>
+</html>

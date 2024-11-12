@@ -1,0 +1,65 @@
+/* p3 {
+    color: green;
+    background-color: yellow;
+} */
+
+/* css-selector-virtual-04.html */
+a:link { 
+    color : blue;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: red;
+}
+
+a:active {
+    background-color: yellow;
+}
+
+a:hover {
+    text-decoration: overline;
+}
+
+div.div01 {
+    border: 1px dashed red;
+    width: 450px;
+    padding: 5px;
+}
+
+/* 가상의 클래스 접근 */
+div.div01:hover {
+    background-color: yellow;
+}
+
+div.div02 {
+    border: 1px dashed green;
+    width: 450px;
+    height: 100px;
+    padding: 5px;
+}
+
+ /* 1.5s linear 0.5s : 마우스를 올린지 0.5초 후에 1.5초동안 속성에 있는대로 변경됨.
+    transition 속성은 요소가 다른 스타일로 변할 때 애니메이션을 적용 
+    all: 모든 스타일 변화를 애니메이션으로 처리 
+    1.5s: 애니메이션의 지속 시간을 1.5초로 설정합니다.
+    linear: 애니메이션의 속도가 일정하게 변합니다. 시작부터 끝까지 같은 속도로 움직입니다.
+    0.5s: 애니메이션이 시작되기 전에 0.5초의 지연을 줍니다.  */
+/* transition 사용 순서: 속성지정 - 지속시간 - 속도 - 대기시간 */
+div.div02:hover {
+    width: 200px;
+    height: 200px;
+    color: red;
+    transition: all 1.5s linear 0.5s ;
+}
+
+input:focus {
+    background-color: red;
+}
+
+/* + div.hint:
+이 부분은 인접 형제 결합자를 사용하여 input:checked 요소 바로 다음에 위치한 div 요소를 선택합니다.
+div의 class가 hint인 요소만 스타일을 변경합니다. */
+input:checked + div.hint {
+    background-color: gray;
+}

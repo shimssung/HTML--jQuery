@@ -1,0 +1,69 @@
+* {
+    text-align: center;
+}
+
+input.address, input.reply {
+    width: 400px; /* 주소 입력 필드를 더 길게 설정 */
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-right: 200px;
+}
+
+.form-address {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-left: 40px;
+
+}
+
+.form-reply {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-left: 40px;
+}
+
+select option {
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    width: 150px;
+    text-align: right;
+    margin-right: 10px; /* label과 input 사이의 여백 조정 */
+}
+
+input, select {
+    padding: 5px;
+}
+
+
+.form-group.radio-group1 {
+    margin-right: 264px;
+}
+
+.form-group.radio-group2 {
+    margin-left: 75px;
+}
+
+.form-group-button {
+    margin-right: 50px;
+}
+
+button {
+    margin: 5px; /* 버튼 간의 간격 추가 */
+}

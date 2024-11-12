@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    함수 정의시 기본값 매개변수를 정의할 수 있다.
+    그니까 함수를 정의하고 원래는 매개변수를 넣어서 보내줘야하지만
+    값이 들어오지않을때 기본으로 가질수있는 값을 넣어줄수있다.
+    -->
+
+    
+    <script>
+        // 파라미터가 정의되지않았을경우만 기본값 할당, null은 변수로서 값을 할당했다고 인식
+        function kdt(pram01=1, param02 = {}, param03 = 'kdt') {
+            console.log(pram01, param02, param03);
+        }
+        kdt();
+        kdt(50, {name : 'jslim'}, 'multicampus');
+        kdt(50, {name : 'jslim'}, null);
+        kdt(50, {name : 'jslim'});
+
+        // 파이프방식으로 기본값 매개변수 정의
+        // 파이프 연산에서는 null이 들어오면 기본값 할당
+        console.log(' ||을 이용한 기본값 할당 ');
+        function perInfo(height, weight, age) {
+            var height = height || 180 ;    // 만약 인자가 없다면(값이 비어있으면) || 뒤에있는 값을 할당
+            var weight = weight || 78 ; 
+            var age = age || 30 ; 
+            console.log(height, weight, age);
+        }
+        perInfo();
+        perInfo(178, 76, 20);
+        perInfo(178, 76, null);
+
+        // Optinal Channing : 
+        // - 객체의 속성값의 유효성을 체크할 수 있음.
+        // - 평가의 대상은 null, undefined
+        // - ?. 연산자 사용
+        const userInfo = {
+            name : {
+                firstName : 'JeongSeop',
+                lastName  : 'Lim'
+            },
+            address : {
+                city     : 'Seoul',
+                postCode : 'XXXXX'
+            },
+            getUserInfo : () => userInfo
+        };
+
+        // address의 postCode를 찾는다라면
+        // userInfo에 address가 있다면 userInfo.address에서 postCode를 찾아줘 - 유효성 체크
+        var postCode = userInfo.address && userInfo.address.postCode ;
+        console.log('psotCode : ', postCode);
+
+        // 옵셔널 체이닝을 사용한 경우
+        // 1. userInfo.address 속성이 있는지 확인
+        // 2-1. userInfo.address가 undefined나 null이 아니면 userInfo.address.postCode 값을 가져옵니다.
+        // 2-2. userInfo.address가 undefined나 null이면 postCode 변수는 undefined 값을 가집니다.
+        var postCode = userInfo.address?.postCode;
+        console.log('psotCode : ', postCode);
+
+        console.log(userInfo.getUserInfo());
+        console.log(userInfo.getUserInfo?.());  // 옵셔널 체이닝으로 익명의 함수 호출
+        const key = 'city' ;
+        console.log(userInfo.address?.[key]);   // []사용법
+
+
+        // 널 병햡 연산자(??)를 옵셔널 체이닝과 같이 활용해보자
+        // ??는 왼쪽 피연산자가 null이나 undefined인 경우에만 오른쪽 피연산자를 반환
+        // userInfo에서 address가 있는지 체크하고 city가 없다면 'Gwangju'를 반환
+        const city1 = userInfo.address?.city ?? 'Gwangju' 
+        console.log(city1);
+        const city2 = userInfo.address?.ct ?? 'Gwangju' // ct는 없으니 undefined = Gwangju반환
+        console.log(city2);
+
+        // 널 병합 연산자를 쓰지 않았을경우
+        function prtTitle1(text) {
+            let title = text; 
+            if(text == null || text == undefined) {
+                title = 'javascript';
+            }
+            console.log('title : ', title);
+        }
+        prtTitle1();
+
+        // 널 병향 연산자를 썻을 꼉우
+        function prtTitle2(text) {
+            let title = text ?? 'javascript'
+            console.log('title : ', title);
+        }
+        prtTitle2();
+
+        // 널 병합 연산자 : Null, undefined만 체크
+        // 논리연산자 : or(||) : null, undefined, falsy(0, '', NaN)까지 체크
+        // NaN: Not-a-Number"의 약자로, 숫자로 변환될 수 없는 값이나 계산에서 오류가 발생할 때 나타나는 특수한 숫자 값(예시: 특정값을 0으로 나눌때)
+        // || : a || b는 a가 "Truthy"라면 a를 반환하고, 그렇지 않으면 b를 반환, Truthy 값은 논리적으로 참으로 평가되는 값
+        // 숫자 0을 데이터로 쓰고싶을때 문제 발생
+        function prtTitle3(text) {
+            let title = text || 'javascript'
+            console.log('title : ', title);
+        }
+        prtTitle3();
+        prtTitle3(0);
+        prtTitle3('');
+
+
+
+    </script>
+
+</body>
+</html>

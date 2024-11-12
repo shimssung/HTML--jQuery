@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+                        
+        <!-- bootstrap cdn -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+        <!-- jquery cdn -->
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        
+        <style>
+            body {
+                margin-left: 30px;
+            }
+        </style>
+
+</head>
+<body>
+    <!-- 
+    Event
+     - Event (사용자가 프로그램에 가하는 행위 ex) 클릭, 키-인 etc...)
+     - Event Source (이벤트가 당하는 주체 즉, 컴포넌트)
+     - Event Handler (이벤트를 처리하는 로직을 담고 있는 함수)
+    -->
+    
+    <h2> input 요소의 값을 취득 </h2>
+    <form>
+        <label for="subject">Content</label>
+        <input type="text" name="subject" id="subject">
+        <button id="saveBtn" type="button">SAVE</button>
+    </form>
+
+    <br><hr><br>
+
+    <div>
+        <label for = "agree"> 동의하시겠습니까?
+            <input type = "checkbox" name="agree" id="agree" value="동의">
+        </label>
+        <button id = "agreeBtn">Send</button>
+        <span id="Result"></span>
+     </div>
+
+     <br><hr><br>
+
+     <h2> checkbox 요소의 값을 취득 </h2>
+     <div>
+        <label for = "week"> 주말에 하고 싶은 일은 무엇입니까?</label>
+        <input type="checkbox" name="all_or_nothing" id="all_or_nothing"  value="선택해제">선택해제
+        <br>
+        <input type="checkbox" name="todo" value="야구보기">야구보기
+        <input type="checkbox" name="todo" value="영화보기">영화보기
+        <input type="checkbox" name="todo" value="산책하기">산책하기
+        <input type="checkbox" name="todo" value="드라이브하기">드라이브하기
+        <input type="checkbox" name="todo" value="필드나가기">필드나가기
+        <input type="checkbox" name="todo" value="누워있기">누워있기
+
+        <p></p>
+        
+        <button id = "chkBtn">Send</button>
+        <span id="chk_result"></span>
+     </div>
+
+     <br><hr><br>
+
+     <h2> radio 요소의 값을 취득 </h2>
+     <div>
+        <label for="radio_agree">동의하시겠습니까?
+            <input type="radio" name="radio_agree" value="동의">동의
+            <input type="radio" name="radio_agree" value="미동의">미동의
+        </label>
+        <button id="radio_Btn">RadioButton</button>
+        <span id="radio_result"></span>
+     </div>
+
+
+    <script>
+
+        // 기본 스크립트 방식
+        // window.onload = function() {
+        //     document.getElementById('saveBtn').onclick = function() {
+        //         let inputStr = document.getElementById('subject').value ;
+        //         console.log("input value : ", inputStr);
+        //     }
+        // }
+
+        // jquery 방식
+        // $(document).ready(function() {
+        //     $('#saveBtn').click(function() {
+        //         let subject = $("#subject").val()
+        //         console.log("input value : ", subject);
+        //     })
+        // }) ;
+ 
+        // querySelector 사용 (#빼면으면 안됌)
+        window.onload = function() {
+            document.getElementById('saveBtn').onclick = function() {
+                let inputStr = document.querySelector('#subject').value ;
+                console.log("input value : ", inputStr);
+            }
+        }
+
+
+        // jquery 방식
+        // $(document).ready(function() {
+        //     $('#saveBtn').click(function() {
+        //         let subject = $("#subject").val()
+        //         console.log("input value : ", subject);
+        //     })
+
+        //     $("#agreeBtn").click(function() {
+        //         var onOff = $("#agree");
+        //         console.log("onOff >>>>>>>> ", onOff);
+        //         console.log("onOff >>>>>>>> ", onOff.is(":checked"));
+        //         if( onOff.is(":checked")) {
+        //             // window.alert("동의하셨습니다.")
+        //             $("#Result").html("<font color='red'>동의하셨습니다.")
+        //         } else{
+        //             // window.alert("미동의하셨습니다.")
+        //             $("#Result").html("<font color='red'>미동의하셨습니다.")
+        //         }
+        //     });
+        // }) ;
+
+        // 위에 jquery를 스크립트로 만들어보자
+        window.onload = function() {
+            document.getElementById('saveBtn').onclick = function() {
+                let inputStr = document.getElementById('subject').value;
+                console.log("input value : ", inputStr);
+            }
+            document.getElementById('agreeBtn').onclick = function() {
+                let onOff =document.getElementById('agree');
+                console.log("onOff >>>>>> ", onOff);
+                console.log("onOff >>>>>> ", onOff.checked);
+                if(onOff.checked){
+                    document.getElementById('Result').innerHTML = ("<font color='red'>동의하셨습니다.");
+                } else {
+                    document.getElementById('Result').innerHTML = ("<font color='red'>미동의하셨습니다.");
+                }
+                
+            }
+        }
+
+        // 출력예시 : 당신이 선택한 주말 일정은 : XXXX입니다. (1개 이상 선택이 되었을 때)
+        // 출력예시 : 당신이 선택한 주말 일정은 없습니다. (선택된 내용이 없을 때)
+        document.getElementById('chkBtn').onclick = function() {
+            let check = document.getElementsByName('todo');
+            let count = 0;
+            let selected = [];
+            for(let idx=0; idx < check.length; idx++) {
+                if(check[idx].checked){
+                    selected.push(check[idx].value);
+                    console.log("당신이 선택한 주말 일정은 : ", check[idx].value, "입니다.");
+                    count++;
+                    
+                    
+                } 
+            }
+            if(count == 0) {
+                document.querySelector('#chk_result').innerHTML = ("당신이 선택한 주말 일정은 없습니다.")
+                console.log("당신이 선택한 주말 일정은 없습니다.");
+            } else {
+                // document.querySelector('#chk_result').innerHTML = `당신이 선택한 주말 일정은 ${selected.toString()} 입니다.`
+                document.querySelector('#chk_result').innerHTML = "당신이 선택한 주말 일정은 " + selected.toString() + " 입니다.";
+            }
+        }
+
+        document.querySelector('#all_or_nothing').onclick = function() {
+            if(document.querySelector('#all_or_nothing').checked) {
+                let check = document.getElementsByName('todo');
+                for(let idx=0; idx < check.length; idx++) {
+                    check[idx].checked = false;
+                }
+            }
+        }
+
+        // radio
+        document.getElementById('radio_Btn').onclick = function() {
+            let check = document.getElementsByName('radio_agree');
+            for(data of check) {
+                if(data.checked) {
+                    document.getElementById('radio_result').innerHTML = data.value;
+                }
+            }
+            
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        td, th {
+            border: 1px solid black;
+        }
+
+        /* 기본값이 auto라서 안적어줘도 되지만 코드를 보는사람한테 보여주는 용 */
+        #auto_tbl {
+           
+            border: 2px solid red;
+            table-layout: auto;
+        }
+
+        /* fixed도 width를 고정시켜놨으니 원래 fixed이지만 보여주는용 */
+        #fixed_tbl {
+            
+            border: 3px solid teal;
+            table-layout: fixed;
+        }
+
+        .cell_tbl {
+            empty-cells: hide;
+        }
+
+        .caption_tbl {
+            border: 3px solid red;
+            caption-side: bottom;
+            border-collapse: collapse;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 
+    표 속성 : table-layout 셀 안 내용의 양에 따라 셀 너비를 조절
+    속성 값
+     - auto    : 기본값으로 자동 조절 (기본값)
+     - fixed   : 내용 분량과 관계없이 셀 너비를 고정
+     - initial : 변경된 테이블 레이아웃을 기본값 상태로 설정
+     - inherit : 부모 요소의 값을 상속 받아서 셀 너비 결정
+    
+     내용정렬, 빈 셀 처리, 캡션 위치
+    -->
+
+    <h2>테이블 레이아웃 auto 예제</h2>
+    <table id="auto_tbl">
+        <tr>
+            <th>table-layout : auto</th>
+            <td>내용 분량에 따라서 자동으로 조절 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+        </tr>
+    </table>
+
+    <br><hr><br>
+
+    <h2>테이블 레이아웃 fixed 예제</h2>
+    <table id="fixed_tbl" width = "240px">
+        <tr>
+            <th>table-layout : fixed</th>
+            <td>내용 분량과 상관없이 고정 xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    </table>
+
+    <br><hr><br>
+
+    <table class="cell_tbl" border="1" width="300px">
+        <tr>
+            <td>국어</td>
+            <td>영어</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>국어</td>
+            <td></td>
+            
+        </tr>
+    </table>
+    
+    <br><hr><br>
+
+    <table class="caption_tbl" border="1" width="300px">
+        <caption>KDT_University</caption>
+        <tr>
+            <td>국어</td>
+            <td>영어</td>
+            <td>수학</td>
+        </tr>
+        <tr>
+            <td>SQL</td>
+            <td>JAVA</td>
+            <td>JAVACRIPT+CSS+HTML</td>
+            
+        </tr>
+    </table>
+</body>
+</html>
